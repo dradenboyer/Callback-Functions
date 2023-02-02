@@ -140,11 +140,12 @@ const uniq = (arr,names) => {
   for (let i=0; i<arr.length; i++){
       for(let j = i +1; j <arr.length; j++){
           if(arr[i] === arr[j]){
-              names(arr[i])
+              arr.splice(j,1)
+             j--
           }
       }
   }
-  
+  return names(arr)
 
 }
 
@@ -157,7 +158,7 @@ const uniq = (arr,names) => {
 */
 
 // CODE HERE
-uniq(names, uniqArr =>{
+uniq(names, (uniqArr) =>{
   console.log('The new names array with all the duplicate items removed is ' + uniqArr)
 })
 
